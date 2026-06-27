@@ -13,7 +13,7 @@ export default defineConfig({
       {
         text: 'Docs',
         items: [
-          { text: 'Overview', link: '/overview' },
+          { text: 'Home', link: '/' },
           { text: 'Custom Settings', link: '/adding-custom-settings' },
           { text: 'Custom States', link: '/making-custom-states' }
         ]
@@ -29,8 +29,7 @@ export default defineConfig({
         {
           text: 'Home',
           items: [
-            { text: 'Home', link: '/' },
-            { text: 'Overview', link: '/overview' },
+            { text: 'Home', link: '/' }
           ]
         },
         {
