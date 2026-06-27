@@ -1,6 +1,7 @@
 ---
 title: Custom Settings
 description: How ALE Psych handles custom settings and controls.
+credits: ImMalloy
 ---
 
 # Custom Settings

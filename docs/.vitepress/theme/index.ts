@@ -7,7 +7,7 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'doc-after': () => h(Credits)
+      'doc-footer-before': () => h(Credits)
     })
   },
   enhanceApp({ app }) {
