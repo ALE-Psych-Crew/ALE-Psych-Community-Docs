@@ -27,9 +27,15 @@ export default defineConfig({
     sidebar: {
       '/': [
         {
-          text: 'Docs',
+          text: 'Home',
           items: [
+            { text: 'Home', link: '/' },
             { text: 'Overview', link: '/overview' },
+          ]
+        },
+        {
+          text: 'Guides',
+          items: [
             { text: 'Custom Settings', link: '/adding-custom-settings' },
             { text: 'Custom States', link: '/making-custom-states' }
           ]

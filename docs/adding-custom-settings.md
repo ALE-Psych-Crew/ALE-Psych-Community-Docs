@@ -6,6 +6,8 @@ credits: ImMalloy
 
 # Custom Settings
 
+<Notice status="newly-added" />
+
 ALE Psych supports custom settings in `mods/<mod>/data/options.json`.
 
 From the source, each option uses this shape:
