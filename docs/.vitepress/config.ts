@@ -10,25 +10,11 @@ export default defineConfig({
   themeConfig: {
     siteTitle: 'ALE Psych Community Docs',
     nav: [
-      {
-        text: 'Docs',
-        items: [
-          { text: 'Home', link: '/' },
-          { text: 'Custom Settings', link: '/adding-custom-settings' },
-          { text: 'Custom States', link: '/making-custom-states' }
-        ]
-      },
-      {
-        text: 'Modding',
-        items: [
-          { text: 'Mod Folder Structure', link: '/mod-folder-structure' },
-          { text: 'Meta JSON', link: '/meta-json' }
-        ]
-      },
-      {
-        text: 'Reference',
-        items: [{ text: 'Status Notices', link: '/status-notices' }]
-      },
+      { text: 'Home', link: '/' },
+      { text: 'General', link: '/adding-custom-settings' },
+      { text: 'Modding', link: '/mod-folder-structure' },
+      { text: 'Scripting', link: '/making-custom-states' },
+      { text: 'Reference', link: '/status-notices' },
       { text: 'GitHub', link: repoUrl }
     ],
     sidebar: {
@@ -42,19 +28,17 @@ export default defineConfig({
         {
           text: 'General',
           items: [
-            { text: 'Custom Settings', link: '/adding-custom-settings' }
+            { text: 'Custom Settings', link: '/adding-custom-settings' },
+            { text: 'Meta JSON', link: '/meta-json' }
           ]
+        },
+        {
+          text: 'Modding',
+          items: [{ text: 'Mod Folder Structure', link: '/mod-folder-structure' }]
         },
         {
           text: 'Scripting',
           items: [{ text: 'Custom States', link: '/making-custom-states' }]
-        },
-        {
-          text: 'Modding',
-          items: [
-            { text: 'Mod Folder Structure', link: '/mod-folder-structure' },
-            { text: 'Meta JSON', link: '/meta-json' }
-          ]
         },
         {
           text: 'Reference',
