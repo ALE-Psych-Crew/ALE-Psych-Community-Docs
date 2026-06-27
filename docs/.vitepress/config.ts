@@ -13,6 +13,8 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Overview', link: '/overview' },
       { text: 'Custom Settings', link: '/adding-custom-settings' },
+      { text: 'Custom States', link: '/making-custom-states' },
+      { text: 'Status Notices', link: '/status-notices' },
       { text: 'GitHub', link: repoUrl }
     ],
     sidebar: [
@@ -21,7 +23,9 @@ export default defineConfig({
         items: [
           { text: 'Home', link: '/' },
           { text: 'Overview', link: '/overview' },
-          { text: 'Custom Settings', link: '/adding-custom-settings' }
+          { text: 'Custom Settings', link: '/adding-custom-settings' },
+          { text: 'Custom States', link: '/making-custom-states' },
+          { text: 'Status Notices', link: '/status-notices' }
         ]
       }
     ],
