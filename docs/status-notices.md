@@ -10,7 +10,7 @@ Use these notices to show readers when a page is changing, incomplete, version-b
 ## Usage
 
 ```md
-<StatusNotice
+<Notice
   status="needs-verification"
   version="1.0.0"
   reason="Source docs are incomplete"
@@ -27,16 +27,16 @@ Available props:
 
 ## Presets
 
-<StatusNotice status="rapidly-changing" reason="Engine behavior is still shifting." />
-<StatusNotice status="newly-added" />
-<StatusNotice status="under-review" reason="Waiting on a source check." />
-<StatusNotice status="needs-verification" version="1.0.0" />
-<StatusNotice status="version-specific" version="1.1.2" />
-<StatusNotice status="unstable-api" reason="API names may change without notice." />
-<StatusNotice status="breaking-change" reason="Older scripts will need updates." />
-<StatusNotice status="partial-documentation" />
-<StatusNotice status="missing-examples" reason="Need real mod examples." />
-<StatusNotice status="legacy" />
-<StatusNotice status="scheduled-for-removal" version="2.0.0" />
-<StatusNotice status="known-issue" reason="Crash reproduced on desktop builds." />
-<StatusNotice status="archived" />
+<Notice status="rapidly-changing" reason="Engine behavior is still shifting." />
+<Notice status="newly-added" />
+<Notice status="under-review" reason="Waiting on a source check." />
+<Notice status="needs-verification" version="1.0.0" />
+<Notice status="version-specific" version="1.1.2" />
+<Notice status="unstable-api" reason="API names may change without notice." />
+<Notice status="breaking-change" reason="Older scripts will need updates." />
+<Notice status="partial-documentation" />
+<Notice status="missing-examples" reason="Need real mod examples." />
+<Notice status="legacy" />
+<Notice status="scheduled-for-removal" version="2.0.0" />
+<Notice status="known-issue" reason="Crash reproduced on desktop builds." />
+<Notice status="archived" />

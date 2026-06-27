@@ -13,5 +13,6 @@ export default {
   enhanceApp({ app }) {
     app.component('Contributors', Contributors)
     app.component('StatusNotice', StatusNotice)
+    app.component('Notice', StatusNotice)
   }
 }

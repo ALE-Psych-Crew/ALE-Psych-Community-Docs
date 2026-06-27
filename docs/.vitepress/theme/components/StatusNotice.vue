@@ -136,24 +136,25 @@ const separatorColor = computed(() => preset.value.color)
 .status-notice {
   display: block;
   width: 100%;
-  padding: 5px;
+  padding: 0;
   margin: 1rem 0 0.25rem;
   box-sizing: border-box;
-  background: #00000022;
-  box-shadow: 0 0 6px #00000044;
-  overflow: auto;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
 }
 
 .status-notice__body {
-  width: min(80%, 100%);
+  width: min(92%, 100%);
   margin: 0 auto 10px auto;
-  padding: 2px 8px;
+  padding: 8px 14px;
   box-sizing: border-box;
   background: var(--vp-c-bg);
   border-left: 9px solid var(--notice-separator);
   color: var(--vp-c-text-1);
   font-size: 16px;
   line-height: 160%;
+  min-height: 96px;
 }
 
 .status-notice__title-row {
@@ -193,11 +194,12 @@ const separatorColor = computed(() => preset.value.color)
 
 @media (max-width: 640px) {
   .status-notice {
-    padding: 4px;
+    padding: 0;
   }
 
   .status-notice__body {
-    width: calc(100% - 8px);
+    width: 100%;
+    padding: 8px 12px;
   }
 
   .status-notice__rule {
