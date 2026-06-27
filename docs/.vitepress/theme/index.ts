@@ -1,17 +1,17 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import Contributors from './components/Contributors.vue'
+import Credits from './components/Credits.vue'
 import StatusNotice from './components/StatusNotice.vue'
 
 export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'doc-after': () => h(Contributors)
+      'doc-after': () => h(Credits)
     })
   },
   enhanceApp({ app }) {
-    app.component('Contributors', Contributors)
+    app.component('Credits', Credits)
     app.component('StatusNotice', StatusNotice)
     app.component('Notice', StatusNotice)
   }

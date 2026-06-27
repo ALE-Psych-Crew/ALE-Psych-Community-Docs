@@ -10,18 +10,34 @@ export default defineConfig({
   themeConfig: {
     siteTitle: 'ALE Psych Community Docs',
     nav: [
-      { text: 'Overview', link: '/overview' },
-      { text: 'Custom Settings', link: '/adding-custom-settings' },
-      { text: 'Custom States', link: '/making-custom-states' },
-      { text: 'Status Notices', link: '/status-notices' },
+      {
+        text: 'Docs',
+        items: [
+          { text: 'Overview', link: '/overview' },
+          { text: 'Custom Settings', link: '/adding-custom-settings' },
+          { text: 'Custom States', link: '/making-custom-states' }
+        ]
+      },
+      {
+        text: 'Reference',
+        items: [{ text: 'Status Notices', link: '/status-notices' }]
+      },
       { text: 'GitHub', link: repoUrl }
     ],
     sidebar: {
       '/': [
-        { text: 'Overview', link: '/overview' },
-        { text: 'Custom Settings', link: '/adding-custom-settings' },
-        { text: 'Custom States', link: '/making-custom-states' },
-        { text: 'Status Notices', link: '/status-notices' }
+        {
+          text: 'Docs',
+          items: [
+            { text: 'Overview', link: '/overview' },
+            { text: 'Custom Settings', link: '/adding-custom-settings' },
+            { text: 'Custom States', link: '/making-custom-states' }
+          ]
+        },
+        {
+          text: 'Reference',
+          items: [{ text: 'Status Notices', link: '/status-notices' }]
+        }
       ]
     },
     search: {
