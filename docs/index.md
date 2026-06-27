@@ -4,8 +4,6 @@ title: Home
 description: Community-maintained docs for ALE Psych Engine
 ---
 
-# ALE Psych Community Docs
-
 <img src="/images/ale-psych-logo.png" alt="ALE Psych logo" width="240" />
 
 ALE Psych is a Friday Night Funkin' engine focused on softcoding, customization, and script-driven features.
