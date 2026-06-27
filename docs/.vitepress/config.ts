@@ -19,6 +19,13 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Modding',
+        items: [
+          { text: 'Mod Folder Structure', link: '/mod-folder-structure' },
+          { text: 'Meta JSON', link: '/meta-json' }
+        ]
+      },
+      {
         text: 'Reference',
         items: [{ text: 'Status Notices', link: '/status-notices' }]
       },
@@ -41,6 +48,13 @@ export default defineConfig({
         {
           text: 'Scripting',
           items: [{ text: 'Custom States', link: '/making-custom-states' }]
+        },
+        {
+          text: 'Modding',
+          items: [
+            { text: 'Mod Folder Structure', link: '/mod-folder-structure' },
+            { text: 'Meta JSON', link: '/meta-json' }
+          ]
         },
         {
           text: 'Reference',
