@@ -9,7 +9,7 @@ export default {
   Layout() {
     return h(DefaultTheme.Layout, null, {
       'doc-footer-before': () => h(Credits),
-      'doc-footer-after': () => h(UtterancesComments)
+      'doc-after': () => h(UtterancesComments)
     })
   },
   enhanceApp({ app }) {
