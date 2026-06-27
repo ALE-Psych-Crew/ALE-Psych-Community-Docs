@@ -11,7 +11,7 @@ export default defineConfig({
     siteTitle: 'ALE Psych Community Docs',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'General', link: '/adding-custom-settings' },
+      { text: 'Core Setup', link: '/adding-custom-settings' },
       { text: 'Modding', link: '/making-songs' },
       { text: 'Scripting', link: '/making-custom-states' },
       { text: 'Contributing', link: '/making-pages-from-source' },
@@ -26,23 +26,24 @@ export default defineConfig({
           ]
         },
         {
-          text: 'General',
+          text: 'Core Setup',
           items: [
             { text: 'Custom Settings', link: '/adding-custom-settings' },
             { text: 'Meta JSON', link: '/meta-json' },
-            { text: 'Mod Folder Structure', link: '/mod-folder-structure' }
+            { text: 'Mod Folder Structure', link: '/mod-folder-structure' },
+            { text: 'Mod Asset Structure', link: '/mod-asset-structure' }
           ]
-        },
-        {
-          text: 'Scripting',
-          items: [{ text: 'Custom States', link: '/making-custom-states' }]
         },
         {
           text: 'Modding',
           items: [
             { text: 'Creating Songs', link: '/making-songs' },
-            { text: 'Mod Asset Structure', link: '/mod-asset-structure' }
+            { text: 'Creating Characters', link: '/making-characters' }
           ]
+        },
+        {
+          text: 'Scripting',
+          items: [{ text: 'Custom States', link: '/making-custom-states' }]
         },
         {
           text: 'Contributing',
