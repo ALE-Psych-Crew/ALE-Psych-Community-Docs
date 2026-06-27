@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, nextTick, onMounted, ref } from 'vue'
+import { computed } from 'vue'
 import { useData } from 'vitepress'
 
 type CreditEntry = string | {
@@ -8,9 +8,6 @@ type CreditEntry = string | {
 }
 
 const { frontmatter } = useData()
-const host = ref<HTMLElement | null>(null)
-const isPlaced = ref(false)
-let observer: MutationObserver | null = null
 
 const credits = computed(() => {
   const value = frontmatter.value.credits as CreditEntry | CreditEntry[] | undefined
@@ -33,62 +30,10 @@ const normalizedCredits = computed(() => {
     })
     .filter((credit) => credit.name?.trim())
 })
-
-onMounted(() => {
-  const placeByline = () => {
-    const root = host.value
-    if (!root) {
-      return
-    }
-
-    const doc = root.closest('.VPDoc')
-    const title = doc?.querySelector('.vp-doc > h1')
-
-    if (!title) {
-      return
-    }
-
-    if (title.nextElementSibling !== root) {
-      title.insertAdjacentElement('afterend', root)
-    }
-
-    isPlaced.value = true
-
-    if (observer) {
-      observer.disconnect()
-      observer = null
-    }
-  }
-
-  nextTick(() => {
-    placeByline()
-
-    if (isPlaced.value || observer) {
-      return
-    }
-
-    observer = new MutationObserver(() => {
-      placeByline()
-    })
-    observer.observe(document.body, { childList: true, subtree: true })
-  })
-})
-
-onBeforeUnmount(() => {
-  if (observer) {
-    observer.disconnect()
-    observer = null
-  }
-})
 </script>
 
 <template>
-  <div
-    v-show="normalizedCredits.length"
-    ref="host"
-    class="written-by"
-    :class="{ 'is-placed': isPlaced }"
-  >
+  <div v-if="normalizedCredits.length" class="written-by">
     <span class="label">Written by</span>
     <span class="names">
       <template v-for="(credit, index) in normalizedCredits" :key="credit.name">
@@ -104,22 +49,14 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .written-by {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
   align-items: baseline;
-  margin: 0.2rem 0 1.25rem 0.15rem;
+  margin: 0 0 1rem;
   color: var(--vp-c-text-2);
   font-size: 0.82rem;
   line-height: 1.4;
-}
-
-.written-by.is-placed {
-  display: flex;
-}
-
-.written-by:not(.is-placed) {
-  visibility: hidden;
 }
 
 .label {
