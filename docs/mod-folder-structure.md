@@ -77,25 +77,26 @@ JSON data that drives gameplay, menus, and engine behavior.
 
 The engine reads these files directly:
 
-- `data/meta.json`
-- `data/debug.json`
-- `data/characters/`
+- [`data/meta.json`](/meta-json)
+- `data/debug.json` 
+- `data/characters/` 
 - `data/stages/`
-- `data/strumLines/`
+- `data/strumLines/` 
 - `data/weeks/`
-- `data/huds/`
-- `data/notes/` for lane set data and visuals
-- `data/splashes/`
+- `data/huds/` 
+- `data/notes/` 
+- `data/splashes/` 
 
 ### `images/`
 All image assets.
 
-The source code definitely references paths like:
-
-- `images/characters/`
-- `images/huds/<hud>/combo/`
-- `images/notes/` for lane graphics and related art
-- `images/splashes/`
+- `images/characters/` 
+- `images/huds/<hud>/combo/` 
+- `images/icons/`
+- `images/notes/`
+- `images/splashes/` 
+- `images/stages/`
+- `images/songs/`
 
 You can add other image folders too, but those are the ones the engine already expects in code.
 
@@ -148,13 +149,13 @@ Runtime scripts.
 
 Known script groups from the source:
 
-- `scripts/global/`
-- `scripts/songs/`
-- `scripts/stages/`
-- `scripts/noteTypes/`
-- `scripts/events/`
-- `scripts/states/`
-- `scripts/substates/`
+- `scripts/global/` - shared script code loaded with other script groups
+- `scripts/songs/` - song-specific scripts that run during gameplay songs
+- `scripts/stages/` - stage scripts tied to the current stage
+- `scripts/noteTypes/` - custom note type scripts
+- `scripts/events/` - chart event scripts
+- `scripts/states/` - custom state scripts
+- `scripts/substates/` - custom substate scripts
 
 `scripts/states/` and `scripts/substates/` support either a single file or a folder with the same name.
 
