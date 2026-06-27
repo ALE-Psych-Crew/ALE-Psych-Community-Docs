@@ -33,9 +33,14 @@ export default defineConfig({
           ]
         },
         {
-          text: 'Guides',
+          text: 'General',
           items: [
-            { text: 'Custom Settings', link: '/adding-custom-settings' },
+            { text: 'Custom Settings', link: '/adding-custom-settings' }
+          ]
+        },
+        {
+          text: 'Scripting',
+          items: [
             { text: 'Custom States', link: '/making-custom-states' }
           ]
         },
