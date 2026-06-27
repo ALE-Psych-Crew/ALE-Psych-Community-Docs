@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, useTemplateRef } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 
 type CreditEntry = string | {
@@ -8,7 +8,7 @@ type CreditEntry = string | {
 }
 
 const { frontmatter } = useData()
-const host = useTemplateRef<HTMLElement>('host')
+const host = ref<HTMLElement | null>(null)
 
 const credits = computed(() => {
   const value = frontmatter.value.credits as CreditEntry | CreditEntry[] | undefined
@@ -32,14 +32,6 @@ const normalizedCredits = computed(() => {
     .filter((credit) => credit.name?.trim())
 })
 
-const label = computed(() => {
-  if (normalizedCredits.value.length !== 1) {
-    return 'Written by'
-  }
-
-  return 'Written by'
-})
-
 onMounted(() => {
   const root = host.value
   if (!root) {
@@ -59,7 +51,7 @@ onMounted(() => {
 
 <template>
   <div ref="host" v-if="normalizedCredits.length" class="written-by">
-    <span class="label">{{ label }}</span>
+    <span class="label">Written by</span>
     <span class="names">
       <template v-for="(credit, index) in normalizedCredits" :key="credit.name">
         <a v-if="credit.link" :href="credit.link" target="_blank" rel="noreferrer">

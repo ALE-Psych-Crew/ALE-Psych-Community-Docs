@@ -8,7 +8,7 @@ export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'doc-footer-before': () => h(Credits),
+      'doc-top': () => h(Credits),
       'doc-after': () => h(UtterancesComments)
     })
   },
