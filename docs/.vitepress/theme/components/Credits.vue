@@ -30,23 +30,29 @@ const normalizedCredits = computed(() => {
     })
     .filter((credit) => credit.name?.trim())
 })
+
+function githubAvatarUrl(name: string) {
+  return `https://github.com/${encodeURIComponent(name)}.png?size=80`
+}
 </script>
 
 <template>
   <section v-if="normalizedCredits.length" class="credits">
     <div class="header">
       <h2 class="title">Credits</h2>
-      <p class="subtitle">Page authors and contributors listed in frontmatter.</p>
     </div>
 
     <div class="grid">
       <div v-for="credit in normalizedCredits" :key="credit.name" class="card">
-        <div class="icon" aria-hidden="true">
-          <svg viewBox="0 0 16 16" fill="currentColor" focusable="false" aria-hidden="true">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.54 5.47 7.59.4.07.55-.17.55-.38v-1.33c-2.22.48-2.69-1.07-2.69-1.07-.36-.92-.88-1.16-.88-1.16-.72-.49.05-.48.05-.48.79.06 1.21.81 1.21.81.7 1.21 1.84.86 2.29.66.07-.51.28-.86.51-1.06-1.77-.2-3.64-.88-3.64-3.93 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.22 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.06-1.87 3.73-3.65 3.93.29.25.54.74.54 1.5v2.22c0 .22.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z" />
-          </svg>
-        </div>
-
+        <img
+          class="avatar"
+          :src="githubAvatarUrl(credit.name)"
+          :alt="`${credit.name} avatar`"
+          width="40"
+          height="40"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+        >
         <div class="name">
           <a v-if="credit.link" :href="credit.link" target="_blank" rel="noreferrer">
             {{ credit.name }}
@@ -66,7 +72,7 @@ const normalizedCredits = computed(() => {
 }
 
 .header {
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.75rem;
 }
 
 .title {
@@ -87,7 +93,7 @@ const normalizedCredits = computed(() => {
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: 0.75rem;
 }
 
 @media (max-width: 640px) {
@@ -99,8 +105,8 @@ const normalizedCredits = computed(() => {
 .card {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 1rem 1.05rem;
+  gap: 0.85rem;
+  padding: 0.85rem 0.95rem;
   border: 1px solid var(--vp-c-divider);
   border-radius: 16px;
   background: var(--vp-c-bg-soft);
@@ -111,20 +117,11 @@ const normalizedCredits = computed(() => {
   border-color: var(--vp-c-brand-1);
 }
 
-.icon {
-  display: grid;
-  place-items: center;
+.avatar {
   flex: none;
-  width: 2rem;
-  height: 2rem;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--vp-c-brand-1) 14%, var(--vp-c-bg));
-  color: var(--vp-c-brand-1);
-}
-
-.icon svg {
-  width: 1rem;
-  height: 1rem;
 }
 
 .name {

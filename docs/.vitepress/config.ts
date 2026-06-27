@@ -20,7 +20,10 @@ export default defineConfig({
       },
       {
         text: 'Reference',
-        items: [{ text: 'Status Notices', link: '/status-notices' }]
+        items: [
+          { text: 'Reference', link: '/reference' },
+          { text: 'Status Notices', link: '/status-notices' }
+        ]
       },
       { text: 'GitHub', link: repoUrl }
     ],
@@ -36,7 +39,10 @@ export default defineConfig({
         },
         {
           text: 'Reference',
-          items: [{ text: 'Status Notices', link: '/status-notices' }]
+          items: [
+            { text: 'Reference', link: '/reference' },
+            { text: 'Status Notices', link: '/status-notices' }
+          ]
         }
       ]
     },

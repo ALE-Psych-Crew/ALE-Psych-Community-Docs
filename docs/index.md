@@ -13,6 +13,7 @@ Community-maintained docs for ALE Psych Engine 5, organized by topic.
 - [Overview](/overview): short intro to what the docs cover.
 - [Custom Settings](/adding-custom-settings): settings and option shape.
 - [Custom States](/making-custom-states): state scripts, examples, and images.
+- [Reference](/reference): docs-project pages and writing notes.
 - [Status Notices](/status-notices): reusable page status badges for docs.
 
 ## What this is for
