@@ -12,6 +12,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'General', link: '/adding-custom-settings' },
+      { text: 'Modding', link: '/making-songs' },
       { text: 'Scripting', link: '/making-custom-states' },
       { text: 'Contributing', link: '/making-pages-from-source' },
       { text: 'GitHub', link: repoUrl }
@@ -35,6 +36,10 @@ export default defineConfig({
         {
           text: 'Scripting',
           items: [{ text: 'Custom States', link: '/making-custom-states' }]
+        },
+        {
+          text: 'Modding',
+          items: [{ text: 'Creating Songs', link: '/making-songs' }]
         },
         {
           text: 'Contributing',
