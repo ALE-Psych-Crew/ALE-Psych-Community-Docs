@@ -14,24 +14,120 @@ This page only covers the layout inside `mods/<mod>/`.
   description="This page is still being filled out."
 />
 
+The engine resolves files from the mod folder first, so anything here can override the base game.
+
+## Full Template
+
 ```text
 mods/
   YourMod/
     data/
-      characters/
-      stages/
-      strumLines/
-      weeks/
-      huds/
-      notes/
-      splashes/
       meta.json
       debug.json
+      characters/
+        <character>.json
+      stages/
+        <stage>.json
+      strumLines/
+        <strumline>.json
+      weeks/
+        <week>.json
+      huds/
+        <hud>.json
+      notes/
+        <lane-set>.json
+      splashes/
+        <splashes>.json
     images/
+      characters/
+      huds/
+        <hud>/
+          combo/
+      icons/
+      notes/
+      splashes/
+      stages/
+      songs/
     sounds/
     music/
     fonts/
+    models/
+    videos/
+    ndlls/
     scripts/
+      global/
+      songs/
+      stages/
+      noteTypes/
+      events/
       states/
+        global
+        <state>
+        <state>/
       substates/
+        global
+        <substate>
+        <substate>/
 ```
+
+## What Each Folder Is For
+
+### `data/`
+JSON data that drives gameplay, menus, and engine behavior.
+
+The engine reads these files directly:
+
+- `data/meta.json`
+- `data/debug.json`
+- `data/characters/`
+- `data/stages/`
+- `data/strumLines/`
+- `data/weeks/`
+- `data/huds/`
+- `data/notes/` for lane set data and visuals
+- `data/splashes/`
+
+### `images/`
+All image assets.
+
+The source code definitely references paths like:
+
+- `images/characters/`
+- `images/huds/<hud>/combo/`
+- `images/notes/` for lane graphics and related art
+- `images/splashes/`
+
+You can add other image folders too, but those are the ones the engine already expects in code.
+
+### `sounds/`
+Short sound effects loaded with `Paths.sound(...)`.
+
+### `music/`
+Music tracks loaded with `Paths.music(...)`.
+
+### `fonts/`
+Font files loaded with `Paths.font(...)`.
+
+### `models/`
+3D model files loaded with `Paths.model(...)`.
+
+### `videos/`
+Video files loaded with `Paths.video(...)`.
+
+### `ndlls/`
+Native libraries loaded with `Paths.ndll(...)`.
+
+### `scripts/`
+Runtime scripts.
+
+Known script groups from the source:
+
+- `scripts/global/`
+- `scripts/songs/`
+- `scripts/stages/`
+- `scripts/noteTypes/`
+- `scripts/events/`
+- `scripts/states/`
+- `scripts/substates/`
+
+`scripts/states/` and `scripts/substates/` support either a single file or a folder with the same name.
