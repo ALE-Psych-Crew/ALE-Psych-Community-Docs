@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 import { useData } from 'vitepress'
 
 type CreditEntry = string | {
@@ -8,6 +8,7 @@ type CreditEntry = string | {
 }
 
 const { frontmatter } = useData()
+const host = useTemplateRef<HTMLElement>('host')
 
 const credits = computed(() => {
   const value = frontmatter.value.credits as CreditEntry | CreditEntry[] | undefined
@@ -31,112 +32,70 @@ const normalizedCredits = computed(() => {
     .filter((credit) => credit.name?.trim())
 })
 
-function githubAvatarUrl(name: string) {
-  return `https://github.com/${encodeURIComponent(name)}.png?size=80`
-}
+const label = computed(() => {
+  if (normalizedCredits.value.length !== 1) {
+    return 'Written by'
+  }
+
+  return 'Written by'
+})
+
+onMounted(() => {
+  const root = host.value
+  if (!root) {
+    return
+  }
+
+  const doc = root.closest('.VPDoc')
+  const title = doc?.querySelector('.vp-doc > h1')
+
+  if (!title || title.nextElementSibling?.classList.contains('written-by')) {
+    return
+  }
+
+  title.insertAdjacentElement('afterend', root)
+})
 </script>
 
 <template>
-  <section v-if="normalizedCredits.length" class="credits">
-    <div class="header">
-      <h2 class="title">Credits</h2>
-    </div>
-
-    <div class="grid">
-      <div v-for="credit in normalizedCredits" :key="credit.name" class="card">
-        <img
-          class="avatar"
-          :src="githubAvatarUrl(credit.name)"
-          :alt="`${credit.name} avatar`"
-          width="40"
-          height="40"
-          loading="lazy"
-          referrerpolicy="no-referrer"
-        >
-        <div class="name">
-          <a v-if="credit.link" :href="credit.link" target="_blank" rel="noreferrer">
-            {{ credit.name }}
-          </a>
-          <span v-else>{{ credit.name }}</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div ref="host" v-if="normalizedCredits.length" class="written-by">
+    <span class="label">{{ label }}</span>
+    <span class="names">
+      <template v-for="(credit, index) in normalizedCredits" :key="credit.name">
+        <a v-if="credit.link" :href="credit.link" target="_blank" rel="noreferrer">
+          {{ credit.name }}
+        </a>
+        <span v-else>{{ credit.name }}</span>
+        <span v-if="index < normalizedCredits.length - 1" class="separator">, </span>
+      </template>
+    </span>
+  </div>
 </template>
 
 <style scoped>
-.credits {
-  margin-top: 2rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--vp-c-divider);
-}
-
-.header {
-  margin-bottom: 0.75rem;
-}
-
-.title {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.2;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.subtitle {
-  margin: 0.35rem 0 0;
+.written-by {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+  margin: -0.65rem 0 1.25rem;
   color: var(--vp-c-text-2);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   line-height: 1.4;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-@media (max-width: 640px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.card {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0.85rem 0.95rem;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 16px;
-  background: var(--vp-c-bg-soft);
-  box-shadow: 0 6px 18px rgb(0 0 0 / 0.03);
-}
-
-.card:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
-.avatar {
-  flex: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 999px;
-}
-
-.name {
-  min-width: 0;
+.label {
   font-weight: 600;
-  line-height: 1.2;
-  word-break: break-word;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.name a {
+.names a {
   color: inherit;
   text-decoration: none;
 }
 
-.name a:hover {
+.names a:hover {
   text-decoration: underline;
 }
 </style>
