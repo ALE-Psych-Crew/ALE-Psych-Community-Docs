@@ -40,9 +40,7 @@ export default defineConfig({
         },
         {
           text: 'Scripting',
-          items: [
-            { text: 'Custom States', link: '/making-custom-states' }
-          ]
+          items: [{ text: 'Custom States', link: '/making-custom-states' }]
         },
         {
           text: 'Reference',
