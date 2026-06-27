@@ -11,9 +11,20 @@ export default defineConfig({
     siteTitle: 'ALE Psych Community Docs',
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Overview', link: '/overview' },
+      { text: 'Custom Settings', link: '/adding-custom-settings' },
       { text: 'GitHub', link: repoUrl }
     ],
-    sidebar: [{ text: 'Home', items: [{ text: 'Home', link: '/' }] }],
+    sidebar: [
+      {
+        text: 'Docs',
+        items: [
+          { text: 'Home', link: '/' },
+          { text: 'Overview', link: '/overview' },
+          { text: 'Custom Settings', link: '/adding-custom-settings' }
+        ]
+      }
+    ],
     search: {
       provider: 'local'
     },
