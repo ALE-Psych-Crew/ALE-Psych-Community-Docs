@@ -4,10 +4,6 @@ title: ALE Psych Community Docs
 description: Community-maintained documentation for ALE Psych Engine 5.
 ---
 
-<script setup>
-import Contributors from './components/Contributors.vue'
-</script>
-
 # ALE Psych Community Docs
 
 Community-maintained documentation for ALE Psych Engine 5.
