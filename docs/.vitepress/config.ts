@@ -39,7 +39,10 @@ export default defineConfig({
         },
         {
           text: 'Modding',
-          items: [{ text: 'Creating Songs', link: '/making-songs' }]
+          items: [
+            { text: 'Creating Songs', link: '/making-songs' },
+            { text: 'Mod Asset Structure', link: '/mod-asset-structure' }
+          ]
         },
         {
           text: 'Contributing',
