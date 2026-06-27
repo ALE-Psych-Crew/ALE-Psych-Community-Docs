@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
   flex-wrap: wrap;
   gap: 0.35rem;
   align-items: baseline;
-  margin: 0.15rem 0 1.25rem 0.1rem;
+  margin: 0.2rem 0 1.25rem 0.15rem;
   color: var(--vp-c-text-2);
   font-size: 0.82rem;
   line-height: 1.4;
@@ -120,10 +120,6 @@ onBeforeUnmount(() => {
 
 .written-by:not(.is-placed) {
   visibility: hidden;
-}
-
-.written-by {
-  flex-wrap: wrap;
 }
 
 .label {
