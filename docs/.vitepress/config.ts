@@ -14,6 +14,7 @@ export default defineConfig({
       { text: 'General', link: '/adding-custom-settings' },
       { text: 'Modding', link: '/mod-folder-structure' },
       { text: 'Scripting', link: '/making-custom-states' },
+      { text: 'Contributing', link: '/making-pages-from-source' },
       { text: 'Reference', link: '/status-notices' },
       { text: 'GitHub', link: repoUrl }
     ],
@@ -43,6 +44,10 @@ export default defineConfig({
         {
           text: 'Reference',
           items: [{ text: 'Status Notices', link: '/status-notices' }]
+        },
+        {
+          text: 'Contributing',
+          items: [{ text: 'Making Pages From Source', link: '/making-pages-from-source' }]
         }
       ]
     },
